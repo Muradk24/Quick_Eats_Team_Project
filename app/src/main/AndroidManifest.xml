@@ -24,13 +24,16 @@
             android:exported="false" />
         <activity
             android:name=".RegistrationActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:theme="@style/splashTheme"/>
         <activity
             android:name=".LoginAcitivity"
-            android:exported="false" />
+            android:exported="false"
+            android:theme="@style/splashTheme"/>
         <activity
             android:name=".QuickEatsSplashScreenActivity"
-            android:exported="true">
+            android:exported="true"
+            android:theme="@style/splashTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
