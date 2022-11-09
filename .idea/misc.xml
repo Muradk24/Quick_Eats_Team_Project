@@ -4,11 +4,13 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="app/src/main/res/drawable/ic_launcher_background.xml" value="0.16" />
+        <entry key="app/src/main/res/layout/AndroidManifest.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_account.xml" value="0.19610507246376813" />
         <entry key="app/src/main/res/layout/activity_choosing_meal.xml" value="0.2947916666666667" />
-        <entry key="app/src/main/res/layout/activity_food_search.xml" value="0.19610507246376813" />
+        <entry key="app/src/main/res/layout/activity_food_search.xml" value="0.26908480879189317" />
         <entry key="app/src/main/res/layout/activity_login.xml" value="0.19610507246376813" />
         <entry key="app/src/main/res/layout/activity_login_acitivity.xml" value="0.19610507246376813" />
+        <entry key="app/src/main/res/layout/activity_main.xml" value="0.1125" />
         <entry key="app/src/main/res/layout/activity_quick_eats_splash_screen.xml" value="0.19610507246376813" />
         <entry key="app/src/main/res/layout/activity_registration.xml" value="0.19610507246376813" />
       </map>
