@@ -17,18 +17,22 @@ import com.google.firebase.firestore.FirebaseFirestore
 class MenuListFragment:Fragment() {
     private lateinit var mBinding: FragmentCategoryBinding
     val  menuAdapter = MenuAdapter()
+    private var catId:Long?=null
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         mBinding = FragmentCategoryBinding.inflate(inflater, container, false)
-        val catId=arguments?.getLong("catId")
+         catId=arguments?.getLong("catId")
         getList(catId)
         setView()
         return mBinding.root
     }
-
+    override fun onResume() {
+        super.onResume()
+        getList(catId)
+    }
     private fun setView(){
         menuAdapter.onDataFilter = { items ->
             mBinding.rvCategory.visibility = if (items.isEmpty()) View.GONE else View.VISIBLE

@@ -30,6 +30,11 @@ class FoodCategoryFragment : Fragment() {
         setView()
         return mBinding.root
     }
+
+    override fun onResume() {
+        super.onResume()
+        getList()
+    }
     private fun getList(){
         FirebaseApp.initializeApp(requireContext())
         val mDatabase: FirebaseFirestore = FirebaseFirestore.getInstance()
