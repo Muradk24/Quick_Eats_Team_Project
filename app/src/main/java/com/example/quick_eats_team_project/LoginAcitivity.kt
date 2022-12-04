@@ -8,6 +8,7 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
+import com.google.firebase.auth.FirebaseAuth
 
 class LoginAcitivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -28,16 +29,23 @@ class LoginAcitivity : AppCompatActivity() {
                 if (android.util.Patterns.EMAIL_ADDRESS.matcher(userEmailaddress.text.toString())
                         .matches()
                 ) {
-                    Toast.makeText(this, "You have successfully logged in!!", Toast.LENGTH_SHORT)
-                        .show()
-                    val sharedPreference =  getSharedPreferences("PREFERENCE_USER", Context.MODE_PRIVATE)
-                    var editor = sharedPreference.edit()
-                    editor.putString("useremail",userEmailaddress.text.toString())
-                    editor.putString("password",userPassword.text.toString())
-                    editor.commit()
-                    val intent = Intent(this, MainActivity::class.java)
-                    startActivity(intent)
-                    finish()
+
+                    FirebaseAuth.getInstance().signInWithEmailAndPassword(userEmailaddress.text.toString(), userPassword.text.toString()).addOnCompleteListener { task ->
+                        if (task.isSuccessful) {
+                            Toast.makeText(this, "You have successfully logged in!!", Toast.LENGTH_SHORT)
+                                .show()
+                            val sharedPreference =  getSharedPreferences("PREFERENCE_USER", Context.MODE_PRIVATE)
+                            val editor = sharedPreference.edit()
+                            editor.putString("useremail",userEmailaddress.text.toString())
+                            editor.putString("password",userPassword.text.toString())
+                            editor.commit()
+                            startActivity(Intent(this,FoodSearchActivity::class.java))
+                            finish()
+                        }
+                    }.addOnFailureListener { exception ->
+                        Toast.makeText(this, "Error ${exception.localizedMessage}", Toast.LENGTH_SHORT).show()
+                    }
+
 
                 } else {
                     Toast.makeText(this, "Please enter a valid email", Toast.LENGTH_SHORT).show()
@@ -46,7 +54,7 @@ class LoginAcitivity : AppCompatActivity() {
                 Toast.makeText(this, "Please fill all the fields", Toast.LENGTH_SHORT).show()
 
             }
-            startActivity(Intent(this,FoodSearchActivity::class.java))
+
 
 
         }

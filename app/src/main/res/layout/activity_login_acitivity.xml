@@ -78,12 +78,14 @@
         android:textColorHint="@color/btnColors"
         android:layout_marginTop="16dp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:endIconMode="password_toggle"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/etEmailaddressError">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/etpassword"
             android:layout_width="match_parent"
+            android:inputType="textVisiblePassword"
             android:layout_height="wrap_content"
             android:hint="Password" />
     </com.google.android.material.textfield.TextInputLayout>

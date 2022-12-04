@@ -1,10 +1,24 @@
 package com.example.quick_eats_team_project
 
+import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
+import androidx.core.content.ContentProviderCompat.requireContext
+import androidx.lifecycle.lifecycleScope
+import androidx.navigation.findNavController
+import com.google.android.gms.tasks.Task
+import com.google.firebase.auth.AuthResult
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.ktx.userProfileChangeRequest
+import com.google.firebase.firestore.ktx.firestore
+import com.google.firebase.ktx.Firebase
+import com.google.firebase.ktx.app
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.tasks.await
 
 class RegistrationActivity : AppCompatActivity() {
     lateinit var personName: EditText
@@ -21,8 +35,28 @@ class RegistrationActivity : AppCompatActivity() {
         var registerButton = findViewById<Button>(R.id.registrationButton)
         registerButton.setOnClickListener {
             if (checkValidation()) {
-                finish()
-            }
+
+                FirebaseAuth.getInstance().createUserWithEmailAndPassword(personEmailaddress.text.toString(), personPassword.text.toString())
+                        .addOnCompleteListener { task ->
+                            if (task.isSuccessful) {
+                                lifecycleScope.launch {
+                                    val profileUpdates = userProfileChangeRequest {
+                                        displayName = personName.text.toString()
+                                        photoUri = Uri.parse("https://example.com/jane-q-user/profile.jpg")
+                                    }
+                                    task.result.user?.updateProfile(profileUpdates)?.await()
+                                    storeInDb(task)
+
+                                }
+                            }
+                        }.addOnFailureListener { exception ->
+                        Toast.makeText(this,  exception.localizedMessage!!.toString(), Toast.LENGTH_SHORT).show()
+                        }
+                } else {
+                    Toast.makeText(this,  "Invalid", Toast.LENGTH_SHORT).show()
+                }
+
+
 //to add a action to a button/ click
         }
     }
@@ -38,8 +72,7 @@ class RegistrationActivity : AppCompatActivity() {
                     .matches() && personName.text.toString().length > 3
             )//check the pattern of email address if it true or not
             {
-                Toast.makeText(this, "you have registered successfully", Toast.LENGTH_SHORT).show()
-                return true
+                 return true
                 //finish()
             } else {
                 Toast.makeText(this, "please enter a valid text", Toast.LENGTH_SHORT).show()
@@ -51,6 +84,31 @@ class RegistrationActivity : AppCompatActivity() {
         }//If any fields are empty this text will appear and this will show an error message to a user
 
     }
+
+private fun storeInDb(task: Task<AuthResult>) {
+    val db = Firebase.firestore(Firebase.app)
+
+    // Create a new user with a first and last name
+
+    val user = hashMapOf(
+        "user_id" to task.result.user?.uid,
+        "dob" to personDateofbirth.text.toString()
+    )
+
+    // Add a new document with a generated ID
+    db.collection("Users").document(task.result.user?.uid!!).set(user)
+        .addOnSuccessListener { documentReference ->
+
+            Toast.makeText(this, "You have registered successfully", Toast.LENGTH_SHORT).show()
+            finish()
+        }
+        .addOnFailureListener { e ->
+            Log.w(RegistrationActivity::class.simpleName, "Error adding document  ${e.message}")
+
+
+        }
+}
+
 }
 
 

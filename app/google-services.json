@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "726403643989",
+    "project_id": "quickeats-72aa9",
+    "storage_bucket": "quickeats-72aa9.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:726403643989:android:c0619f2796b0ba235432dc",
+        "android_client_info": {
+          "package_name": "com.example.quick_eats_team_project"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "726403643989-qqbik1mmr32fi15f3gcki4mb0tmtei14.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.quick_eats_team_project",
+            "certificate_hash": "4e7ad81ea8c84fea7b5a10a64562976ea8f82634"
+          }
+        },
+        {
+          "client_id": "726403643989-b7lq5ga25vd64n04srkgssepfqp02c3a.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyABXQUBEBhGwjxxK0nfcxjd-Glh4q4HgAI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "726403643989-b7lq5ga25vd64n04srkgssepfqp02c3a.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
