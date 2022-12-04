@@ -1,6 +1,5 @@
 package com.example.quick_eats_team_project
 
-import android.R
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -27,21 +26,20 @@ class FragmentTab: Fragment() {
         mBinding.apply {
             TabsPagerAdapter.fragments = ArrayList<Fragment>().apply {
                 add(FoodCategoryFragment())
-                add(FoodCategoryFragment())
-                add(NotificationFragment())
-                add(PlacesFragment())
+                add(OrderFragment())
+                add(CartScreenActivity())
             }
             viewPager.adapter = TabsPagerAdapter(childFragmentManager, lifecycle)
             viewPager.isUserInputEnabled = false
+
             TabLayoutMediator(
                 tabLayout, viewPager
             ) { tab, position ->
                 tab.icon = when (position) {
-                    0 -> resources.getDrawable(R.drawable.ic_menu_search,null)
-                    1 -> resources.getDrawable(R.drawable.ic_menu_view,null)
-                    2 -> resources.getDrawable(R.drawable.ic_popup_reminder,null)
-                    3 -> resources.getDrawable(R.drawable.ic_menu_myplaces,null)
-                    else -> resources.getDrawable(R.drawable.ic_menu_search,null)
+                    0 -> resources.getDrawable(android.R.drawable.ic_menu_search,null)
+                    1 -> resources.getDrawable(android.R.drawable.ic_menu_view,null)
+                    2 -> resources.getDrawable(R.drawable.ic_checkout,null)
+                    else -> resources.getDrawable(R.drawable.ic_person,null)
                 }
             }.attach()
         }

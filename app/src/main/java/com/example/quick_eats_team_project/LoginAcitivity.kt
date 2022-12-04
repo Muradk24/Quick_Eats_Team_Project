@@ -36,6 +36,7 @@ class LoginAcitivity : AppCompatActivity() {
                                 .show()
                             val sharedPreference =  getSharedPreferences("PREFERENCE_USER", Context.MODE_PRIVATE)
                             val editor = sharedPreference.edit()
+                            editor.putString("userId",task.result.user?.uid)
                             editor.putString("useremail",userEmailaddress.text.toString())
                             editor.putString("password",userPassword.text.toString())
                             editor.commit()

@@ -7,9 +7,13 @@ data class MenuResponse(
 
 class MenuItemModel (
     var catId: Long? = null,
-    var menuId: Int? = null,
+    var menuId: Long? = null,
     var menuItem: String? = null,
+    var menuDesc: String? = null,
     var price: String? = null,
     var menuImage: String? = null,
 
-    )
+
+    ){
+    var quatity:Int?=0
+}

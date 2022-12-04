@@ -26,6 +26,7 @@ class FoodCategoryFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         mBinding = FragmentCategoryBinding.inflate(inflater, container, false);
+       mBinding.progressBar.visibility=View.VISIBLE
         getList()
         setView()
         return mBinding.root
@@ -44,6 +45,7 @@ class FoodCategoryFragment : Fragment() {
 // This method is called once with the initial value and again
                 // whenever data at this location is updated.
              val response = Response()
+            mBinding.progressBar.visibility = View.GONE
             if (task.isSuccessful) {
                 val result = task.result
                 result?.let {
@@ -51,10 +53,15 @@ class FoodCategoryFragment : Fragment() {
                         snapShot.toObject(CategoryModel::class.java)
                     }
                 }
+                 categoryAdapter.addData( response.category as ArrayList<CategoryModel>)
+                mBinding.rvCategory.visibility = if ((response.category as ArrayList<MenuItemModel>).isEmpty()) View.GONE else View.VISIBLE
+                mBinding.tvNoData.visibility = if ((response.category as ArrayList<MenuItemModel>).isEmpty()) View.VISIBLE else View.GONE
+            }
+            else
+            { mBinding.rvCategory.visibility= View.GONE
+                mBinding.tvNoData.visibility =View.VISIBLE
             }
 
-
-            categoryAdapter.addData( response.category as ArrayList<CategoryModel>)
 
         }
     }

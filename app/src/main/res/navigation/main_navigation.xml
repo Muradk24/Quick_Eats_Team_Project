@@ -1,13 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main_navigation"
     app:startDestination="@id/fragmentTab">
-
+    <action
+        android:id="@+id/action_cartScreenActivity_to_accountActivity"
+        app:destination="@id/accountActivity" />
     <fragment
         android:id="@+id/fragmentTab"
         android:name="com.example.quick_eats_team_project.FragmentTab"
         android:label="FragmentTab" >
+
         <action
             android:id="@+id/action_fragmentTab_to_menuListFragment"
             app:destination="@id/menuListFragment" />
@@ -15,5 +19,35 @@
     <fragment
         android:id="@+id/menuListFragment"
         android:name="com.example.quick_eats_team_project.MenuListFragment"
-        android:label="MenuListFragment" />
+        android:label="MenuListFragment" >
+        <action
+            android:id="@+id/action_menuListFragment_to_detailActivity"
+            app:destination="@id/detailActivity" />
+    </fragment>
+    <fragment
+        android:id="@+id/detailActivity"
+        android:name="com.example.quick_eats_team_project.DetailActivity"
+        android:label="activity_detail"
+        tools:layout="@layout/activity_detail" >
+        <action
+            android:id="@+id/action_detailActivity_to_cartScreenActivity"
+            app:destination="@id/cartScreenActivity" />
+    </fragment>
+    <fragment
+        android:id="@+id/cartScreenActivity"
+        android:name="com.example.quick_eats_team_project.CartScreenActivity"
+        android:label="CartScreenActivity" >
+
+
+    </fragment>
+    <fragment
+        android:id="@+id/accountActivity"
+        android:name="com.example.quick_eats_team_project.AccountActivity"
+        android:label="AccountActivity" >
+        <action
+            android:id="@+id/action_accountActivity_to_fragmentTab"
+            app:destination="@id/fragmentTab"
+            app:popUpToInclusive="true"
+            app:popUpTo="@id/fragmentTab"/>
+    </fragment>
 </navigation>
