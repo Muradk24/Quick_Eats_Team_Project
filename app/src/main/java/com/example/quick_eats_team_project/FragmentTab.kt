@@ -28,6 +28,7 @@ class FragmentTab: Fragment() {
                 add(FoodCategoryFragment())
                 add(OrderFragment())
                 add(CartScreenActivity())
+                add(SettingFragment())
             }
             viewPager.adapter = TabsPagerAdapter(childFragmentManager, lifecycle)
             viewPager.isUserInputEnabled = false

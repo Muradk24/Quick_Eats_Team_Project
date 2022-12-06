@@ -15,6 +15,7 @@
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.1125" />
         <entry key="app/src/main/res/layout/activity_quick_eats_splash_screen.xml" value="0.19610507246376813" />
         <entry key="app/src/main/res/layout/activity_registration.xml" value="0.19610507246376813" />
+        <entry key="app/src/main/res/layout/fragment_setting.xml" value="0.1" />
       </map>
     </option>
   </component>
