@@ -6,128 +6,142 @@
     android:layout_width="match_parent"
     android:padding="16dp"
     android:layout_height="match_parent">
-<androidx.constraintlayout.widget.ConstraintLayout
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    tools:context=".RegistrationActivity">
 
-
-
-    <Button
-        android:id="@+id/registrationButton"
-        android:layout_width="wrap_content"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:backgroundTint="#B35F5F"
-        android:text="Register"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tlDateError" />
+        tools:context=".RegistrationActivity">
 
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Registration "
-        android:textColor="#B35F5F"
-        android:textSize="24sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.26" />
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/tlNameError"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:textColor="#0E0E0E"
-        android:textColorHint="@color/btnColors"
-        android:layout_marginTop="16dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView">
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/etPersonName"
-            android:layout_width="match_parent"
+        <Button
+            android:id="@+id/registrationButton"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:hint="Name"
-            android:inputType="textPersonName"
-            android:maxLength="30"
-            android:ems="10"
-            android:textColorHint="@color/btnColors" />
-    </com.google.android.material.textfield.TextInputLayout>
+            android:layout_marginTop="16dp"
+            android:backgroundTint="#B35F5F"
+            android:text="Register"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tlDateError" />
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/tlPasswordError"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:textColor="#0E0E0E"
-        android:textColorHint="@color/btnColors"
-        app:endIconMode="password_toggle"
-        app:layout_constraintEnd_toEndOf="@+id/tlNameError"
-        app:layout_constraintStart_toStartOf="@+id/tlNameError"
-        app:layout_constraintTop_toBottomOf="@+id/tlEmailError">
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/etPassword"
-            android:layout_width="match_parent"
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:ems="10"
-            android:hint="Password"
-            android:inputType="textVisiblePassword"
-            android:textColorHint="@color/btnColors" />
-    </com.google.android.material.textfield.TextInputLayout>
+            android:text="Registration "
+            android:textColor="#B35F5F"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.498"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.26" />
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/tlEmailError"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:textColor="#0E0E0E"
-        android:textColorHint="@color/btnColors"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tlNameError">
+        <Button
+            android:id="@+id/BackBttn"
+            android:layout_width="74dp"
+            android:layout_height="40dp"
+            android:backgroundTint="#B35F5F"
+            android:text="BACK"
+            app:layout_constraintBottom_toTopOf="@+id/tlNameError"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.05" />
 
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/etEmailAddress"
-            android:layout_width="match_parent"
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/tlNameError"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:ems="10"
-            android:hint="Email"
-            android:inputType="textEmailAddress"
-            android:textColorHint="#B35F5F" />
-    </com.google.android.material.textfield.TextInputLayout>
+            android:layout_marginTop="16dp"
+            android:textColor="#0E0E0E"
+            android:textColorHint="@color/btnColors"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView">
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/tlDateError"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:textColor="#0E0E0E"
-        android:textColorHint="@color/btnColors"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/tlNameError"
-        app:layout_constraintTop_toBottomOf="@+id/tlPasswordError">
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etPersonName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="Name"
+                android:inputType="textPersonName"
+                android:maxLength="30"
+                android:textColorHint="@color/btnColors" />
+        </com.google.android.material.textfield.TextInputLayout>
 
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/etDate"
-            android:layout_width="match_parent"
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/tlPasswordError"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:ems="10"
-            android:hint="Date Of Birth"
-            android:inputType="date"
-            android:textColorHint="#B35F5F" />
-    </com.google.android.material.textfield.TextInputLayout>
-</androidx.constraintlayout.widget.ConstraintLayout>
+            android:layout_marginTop="16dp"
+            android:textColor="#0E0E0E"
+            android:textColorHint="@color/btnColors"
+            app:endIconMode="password_toggle"
+            app:layout_constraintEnd_toEndOf="@+id/tlNameError"
+            app:layout_constraintStart_toStartOf="@+id/tlNameError"
+            app:layout_constraintTop_toBottomOf="@+id/tlEmailError">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etPassword"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="Password"
+                android:inputType="textVisiblePassword"
+                android:textColorHint="@color/btnColors" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/tlEmailError"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:textColor="#0E0E0E"
+            android:textColorHint="@color/btnColors"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tlNameError">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etEmailAddress"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="Email"
+                android:inputType="textEmailAddress"
+                android:textColorHint="#B35F5F" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/tlDateError"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:textColor="#0E0E0E"
+            android:textColorHint="@color/btnColors"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/tlNameError"
+            app:layout_constraintTop_toBottomOf="@+id/tlPasswordError">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etDate"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="Date Of Birth"
+                android:inputType="date"
+                android:textColorHint="#B35F5F" />
+        </com.google.android.material.textfield.TextInputLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>
 

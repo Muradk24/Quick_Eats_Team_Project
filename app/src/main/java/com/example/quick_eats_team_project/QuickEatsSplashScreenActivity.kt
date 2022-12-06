@@ -6,6 +6,8 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
+import android.view.animation.AnimationUtils
+import android.widget.ImageView
 import com.google.firebase.FirebaseApp
 
 class QuickEatsSplashScreenActivity : AppCompatActivity() {
@@ -13,6 +15,11 @@ class QuickEatsSplashScreenActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_quick_eats_splash_screen)
         FirebaseApp.initializeApp(applicationContext)
+
+        val backgroundImage: ImageView = findViewById(R.id.iv_logo)
+        val slideAnimation = AnimationUtils.loadAnimation(this, R.anim.side_slide)
+        backgroundImage.startAnimation(slideAnimation)
+
         Handler(Looper.getMainLooper()).postDelayed({//we are giving a delay of three seconds
             val sharedPreference =  getSharedPreferences("PREFERENCE_USER", Context.MODE_PRIVATE)
             if (sharedPreference.getString("useremail","").isNullOrEmpty()){

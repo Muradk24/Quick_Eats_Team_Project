@@ -1,5 +1,6 @@
 package com.example.quick_eats_team_project
 
+import android.content.Intent
 import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -31,8 +32,14 @@ class RegistrationActivity : AppCompatActivity() {
         personName = findViewById<EditText>(R.id.etPersonName) //Get the persons name in variable
         personPassword = findViewById<EditText>(R.id.etPassword)
         personEmailaddress = findViewById<EditText>(R.id.etEmailAddress)
+        var backButton = findViewById<Button>(R.id.BackBttn)
         personDateofbirth = findViewById<EditText>(R.id.etDate)
         var registerButton = findViewById<Button>(R.id.registrationButton)
+
+        backButton.setOnClickListener {
+            startActivity(Intent(this,LoginAcitivity::class.java))
+            finish()
+        }
         registerButton.setOnClickListener {
             if (checkValidation()) {
 

@@ -23,6 +23,8 @@ class LoginAcitivity : AppCompatActivity() {
             startActivity(intent)
         }
         userLoginbutton.setOnClickListener {
+
+
             if (userEmailaddress.text.toString().isEmpty().not() && userPassword.text.toString()
                     .isEmpty().not()
             ) {
